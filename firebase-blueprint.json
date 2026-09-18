@@ -1,0 +1,35 @@
+{
+  "entities": {
+    "YearRecord": {
+      "title": "Year Record",
+      "description": "Stores monthly salary tracking records for a specific year",
+      "type": "object",
+      "properties": {
+        "year": { "type": "number", "description": "Year number, e.g. 2026" },
+        "months": { "type": "array", "description": "Array of MonthRecord objects" },
+        "updatedAt": { "type": "string", "description": "ISO timestamp of last update" }
+      },
+      "required": ["year", "months"]
+    },
+    "AppSettings": {
+      "title": "App Settings",
+      "description": "Stores app-wide settings such as available years list",
+      "type": "object",
+      "properties": {
+        "availableYears": { "type": "array", "description": "List of available years" },
+        "updatedAt": { "type": "string", "description": "ISO timestamp of last update" }
+      },
+      "required": ["availableYears"]
+    }
+  },
+  "firestore": {
+    "/years/{yearId}": {
+      "entity": "YearRecord",
+      "description": "Salary tracking records partitioned by year"
+    },
+    "/settings/{settingsId}": {
+      "entity": "AppSettings",
+      "description": "App settings like available years"
+    }
+  }
+}

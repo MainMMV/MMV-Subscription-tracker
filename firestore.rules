@@ -1,0 +1,13 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // MMV Salary data is protected via the client-side PIN access gate.
+    // Allow read and write for synchronized records across devices.
+    match /years/{yearId} {
+      allow read, write: if true;
+    }
+    match /settings/{settingsId} {
+      allow read, write: if true;
+    }
+  }
+}

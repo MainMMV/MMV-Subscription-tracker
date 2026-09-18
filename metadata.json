@@ -1,0 +1,6 @@
+{
+  "name": "MMV Salary Tracker",
+  "description": "Salary tracking and personal expense management app.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
